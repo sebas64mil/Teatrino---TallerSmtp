@@ -18,16 +18,49 @@
 
 ---
 
-# 1️⃣ ¿Qué es el proyecto?
+## 1️⃣ ¿Qué es el proyecto?
 
-> ✏️ *Espacio para completar la descripción general del proyecto.*
->
-> Aquí puedes explicar:
-> - Objetivo del juego.
-> - Propósito del sistema SMTP.
-> - Contexto académico del taller.
-> - Tecnologías utilizadas.
+**Teatrino - Taller SMTP** es un mini-videojuego desarrollado en **Unity** cuyo objetivo principal es demostrar la integración funcional de un sistema de notificaciones por correo electrónico utilizando el protocolo SMTP.
 
+El proyecto fue realizado como parte de un taller académico enfocado en evidenciar la correcta conexión entre:
+
+- 🎮 Lógica del videojuego  
+- 🖥 Interfaz de usuario básica en Unity  
+- 🧠 Generación dinámica de mensajes  
+- 📧 Envío real de correos electrónicos mediante SMTP  
+
+Más allá de la complejidad del gameplay, el propósito central del proyecto es validar que un evento interno del juego pueda generar una notificación automática por correo, mostrando claramente el flujo completo desde la acción del jugador hasta la respuesta del servidor SMTP.
+
+---
+
+### 🎭 Contexto del Juego
+
+**Teatrino** es un juego de aventura en solitario en el que el jugador encarna a un actor que intenta escapar de un pequeño teatro abandonado.
+
+Durante la partida, debe:
+
+- Evitar fantasmas y trampas  
+- Utilizar máscaras para protegerse  
+- Recolectar tickets distribuidos en el escenario  
+
+Estos eventos del juego (recoger una llave, ganar la partida o perderla) activan el sistema de notificaciones por correo.
+
+---
+
+### 📧 Enfoque del Taller
+
+El proyecto cumple con los siguientes requisitos académicos:
+
+- ✅ Uso obligatorio del código SMTP proporcionado  
+- ✅ Envío real de correos electrónicos  
+- ✅ Construcción dinámica del asunto y cuerpo del mensaje  
+- ✅ Visualización del estado del envío (éxito o error)  
+- ✅ Interfaz clara que permite:
+  - Ingresar el correo destino  
+  - Activar eventos del juego  
+  - Visualizar el estado del envío en tiempo real  
+
+- La arquitectura implementada permite mantener desacoplado el sistema SMTP de la lógica principal del juego, utilizando eventos y programación asíncrona (`async/await`) para garantizar una integración limpia y funcional.
 ---
 
 # 2️⃣ Organización del Proyecto
