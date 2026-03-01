@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 public class EmailService
 {
-    private string fromEmail = "vsebasjrincon12@gmail.com";
-    private string password = "ptax pdax wxss hvxc";
+    private string fromEmail = "ingmultimediausbbog@gmail.com";
+    private string password = "fsjq ioqf zsxs jrzf";
     private string toEmail;
 
     public EmailService(string destinationEmail)
