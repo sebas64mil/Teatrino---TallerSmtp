@@ -312,25 +312,25 @@ EmailStatusUI actualiza el texto y color en pantalla
 
 ## 5.1 Pantalla de Registro de Email
 
-![Pantalla Registro Email](ImgReadme/registro_email.png)
+![Pantalla Registro Email](Assets/Imagenes/ImagenesReadme/Registro.png)
 
 ---
 
 ## 5.2 Juego en Ejecución
 
-![Gameplay](ImgReadme/gameplay.png)
+![Gameplay](Assets/Imagenes/ImagenesReadme/InicioJuego.png)
 
 ---
 
 ## 5.3 Notificación de Envío Exitoso
 
-![Email Success](ImgReadme/email_success.png)
+![Email Success](Assets/Imagenes/ImagenesReadme/CorreoExitoso.png)
 
 ---
 
 ## 5.4 Notificación de esperarando
 
-![Email Esperando](ImgReadme/email_error.png)
+![Email Esperando](Assets/Imagenes/ImagenesReadme/Enviando.png)
 
 ---
 
