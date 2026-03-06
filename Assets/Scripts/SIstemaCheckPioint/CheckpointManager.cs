@@ -23,9 +23,6 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    // =========================
-    // CHECKPOINT LOGIC
-    // =========================
     public void SetCheckpoint(Vector3 checkpointPosition)
     {
         currentCheckpoint = checkpointPosition;
@@ -39,24 +36,16 @@ public class CheckpointManager : MonoBehaviour
 
         return initialSpawnPoint;
     }
-
-    // =========================
-    // RESET / CONTROL
-    // =========================
-
-    //  Para que al reiniciar NO vaya al último checkpoint
     public void ClearCheckpoint()
     {
         hasCheckpoint = false;
     }
 
-    //  Forzar volver al inicio del nivel
     public Vector3 GetInitialSpawnPoint()
     {
         return initialSpawnPoint;
     }
 
-    //  Permite cambiar el spawn inicial si lo necesitas
     public void SetInitialSpawn(Vector3 position)
     {
         initialSpawnPoint = position;

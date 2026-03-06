@@ -9,7 +9,7 @@ public class KeySystem : MonoBehaviour
     [SerializeField] private int totalKeysRequired = 3;
 
     private HashSet<KeyType> collectedKeys = new HashSet<KeyType>();
-    private List<Key> allKeys = new List<Key>(); // 👈 registro visual
+    private List<Key> allKeys = new List<Key>();
 
     public int CollectedCount => collectedKeys.Count;
     public int TotalKeysRequired => totalKeysRequired;
@@ -25,25 +25,19 @@ public class KeySystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // =========================
-    // REGISTRO
-    // =========================
     public void RegisterKey(Key key)
     {
         if (!allKeys.Contains(key))
             allKeys.Add(key);
     }
 
-    // =========================
-    // KEY LOGIC
-    // =========================
+
     public void CollectKey(KeyType key)
     {
         if (collectedKeys.Contains(key))
             return;
 
         collectedKeys.Add(key);
-        Debug.Log($"🔑 Llaves: {collectedKeys.Count}/{totalKeysRequired}");
 
         // avisar UI
         Object.FindFirstObjectByType<KeyUIController>()?.UpdateKeys(collectedKeys.Count);
@@ -55,9 +49,7 @@ public class KeySystem : MonoBehaviour
         return collectedKeys.Count >= totalKeysRequired;
     }
 
-    // =========================
-    // RESET TOTAL (como checkpoint)
-    // =========================
+
     public void ClearKeys()
     {
         collectedKeys.Clear();
@@ -65,10 +57,9 @@ public class KeySystem : MonoBehaviour
         foreach (Key key in allKeys)
         {
             if (key != null)
-                key.ResetKey(); //  reactivar visual
+                key.ResetKey(); 
         }
 
-        Debug.Log("🔄 Llaves reiniciadas");
     }
 
     public bool IsKeyCollected(KeyType key)

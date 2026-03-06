@@ -12,7 +12,6 @@ public class VictoryTrigger : MonoBehaviour
 
         if (KeySystem.Instance == null)
         {
-            Debug.LogWarning("VictoryTrigger: KeySystem no encontrado");
             return;
         }
 
@@ -21,10 +20,6 @@ public class VictoryTrigger : MonoBehaviour
             EventsEmailSmtp.Instance.PlayerWin();
             GameManager.Instance.RestartLevelFromStart();
             GameManager.Instance.ChangeScene(victorySceneName);
-        }
-        else
-        {
-            Debug.Log(" Aún faltan llaves");
         }
     }
 }

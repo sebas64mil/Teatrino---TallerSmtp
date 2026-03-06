@@ -9,7 +9,7 @@ public class PlayerMovement2D : MonoBehaviour
     [SerializeField] private float moveSpeed = 6f;
 
     [Header("Mask Animator")]
-    [SerializeField] private Animator maskAnimator; // Animator de la máscara
+    [SerializeField] private Animator maskAnimator; 
 
     [Header("Mask Offset")]
     [SerializeField] private Vector3 maskCenterOffset = new Vector3(0f, 0f, 0f);
@@ -23,7 +23,6 @@ public class PlayerMovement2D : MonoBehaviour
     private Animator animator;
     private Transform maskTransform;
 
-    // Nuevo: controla si el jugador puede moverse
     public bool CanMove { get; set; } = true;
 
     private void Awake()
@@ -35,7 +34,6 @@ public class PlayerMovement2D : MonoBehaviour
         if (maskAnimator != null)
             maskTransform = maskAnimator.transform;
         else
-            Debug.LogWarning("Mask Animator no asignado. Arrastra el Animator del sprite de la máscara.");
 
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
@@ -52,7 +50,6 @@ public class PlayerMovement2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Si el juego está pausado, detener/pausar audio y movimiento inmediatamente.
         if (GameManager.isPaused)
         {
             if (walkingSound != null && walkingSound.isPlaying)
@@ -67,7 +64,7 @@ public class PlayerMovement2D : MonoBehaviour
             if (walkingSound != null && walkingSound.isPlaying)
                 walkingSound.Pause();
 
-            rb.linearVelocity = Vector2.zero; // Detener cualquier movimiento residual
+            rb.linearVelocity = Vector2.zero; 
             return; 
         }
 

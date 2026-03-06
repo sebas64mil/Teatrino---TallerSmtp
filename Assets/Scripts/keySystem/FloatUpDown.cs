@@ -3,8 +3,8 @@ using UnityEngine;
 public class FloatUpDown : MonoBehaviour
 {
     [Header("Float Settings")]
-    [SerializeField] private float floatHeight = 0.25f; // qué tanto sube y baja
-    [SerializeField] private float floatSpeed = 2f;     // qué tan rápido
+    [SerializeField] private float floatHeight = 0.25f; 
+    [SerializeField] private float floatSpeed = 2f;    
 
     private Vector3 startPosition;
 

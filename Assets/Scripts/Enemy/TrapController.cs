@@ -27,26 +27,18 @@ public class TrapController : MonoBehaviour
         StartCoroutine(TrapLoop());
     }
 
-    // =========================
-    // LOOP
-    // =========================
     private IEnumerator TrapLoop()
     {
         while (true)
         {
-            // OPEN
             SetTrapState(true);
             yield return new WaitForSeconds(openTime);
 
-            // CLOSE
             SetTrapState(false);
             yield return new WaitForSeconds(closedTime);
         }
     }
 
-    // =========================
-    // STATE
-    // =========================
     private void SetTrapState(bool open)
     {
         isOpen = open;

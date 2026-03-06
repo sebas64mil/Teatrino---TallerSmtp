@@ -1,13 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI; // Para Image de UI
-using UnityEngine.Audio;
+using UnityEngine.UI; 
 
 public class MapTrigger : MonoBehaviour
 {
-    [Header("Mapa UI")]
-    [SerializeField] private GameObject mapUI;    // Panel del mapa que se activa/desactiva
-    [SerializeField] private Image mapUIImage;    // Componente Image dentro del panel de UI
-    [SerializeField] private Sprite mapSprite;    // Sprite específico de este mapa
+    [Header("Map UI")]
+    [SerializeField] private GameObject mapUI;   
+    [SerializeField] private Image mapUIImage;    
+    [SerializeField] private Sprite mapSprite;  
 
     private PlayerInputHandler playerInput;
     private PlayerMovement2D playerMovement;
@@ -17,28 +16,25 @@ public class MapTrigger : MonoBehaviour
 
 
     private bool mapOpen = false;
-    private bool mapBlockedByPause = false; // Para evitar que el mapa se abra solo al despausar
+    private bool mapBlockedByPause = false;
 
     private void Update()
     {
         if (playerInput != null)
         {
-            // Abrir/cerrar mapa con la acción Interact solo si no está bloqueado por pausa
             if (playerInput.interactable && !mapBlockedByPause)
             {
                 ToggleMap();
-                playerInput.interactable = false; // Consumir el input
+                playerInput.interactable = false;
             }
         }
 
-        // Si el mapa está abierto y el juego se pausa, cerrarlo y bloquearlo
         if (mapOpen && GameManager.isPaused)
         {
             mapBlockedByPause = true;
             CloseMap();
         }
 
-        // Si el juego se despausa, desbloquear la posibilidad de abrir el mapa
         if (!GameManager.isPaused)
         {
             mapBlockedByPause = false;
@@ -62,14 +58,12 @@ public class MapTrigger : MonoBehaviour
         {
             mapUI.SetActive(true);
 
-            // Cambiar la imagen del mapa al sprite específico
             if (mapUIImage != null && mapSprite != null)
                 mapUIImage.sprite = mapSprite;
         }
 
         mapOpen = true;
 
-        // Bloquear movimiento
         if (playerMovement != null)
             playerMovement.CanMove = false;
 
@@ -82,11 +76,9 @@ public class MapTrigger : MonoBehaviour
 
         mapOpen = false;
 
-        // Desbloquear movimiento solo si el juego no está pausado
         if (!GameManager.isPaused && playerMovement != null)
             playerMovement.CanMove = true;
 
-        // Ocultar cursor solo si el juego no está pausado
         if (!GameManager.isPaused)
             GameManager.CursorVisible(false);
     }
@@ -107,7 +99,6 @@ public class MapTrigger : MonoBehaviour
             playerInput = null;
             playerMovement = null;
 
-            // Cerrar mapa al salir del trigger
             if (mapOpen)
                 CloseMap();
         }

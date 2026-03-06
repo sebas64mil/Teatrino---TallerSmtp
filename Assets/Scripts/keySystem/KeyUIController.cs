@@ -24,16 +24,12 @@ public class KeyUIController : MonoBehaviour
     {
         if (KeySystem.Instance == null)
         {
-            Debug.LogWarning("KeyUIController: KeySystem no encontrado");
             return;
         }
 
         Init(KeySystem.Instance);
     }
 
-    // =========================
-    // INIT
-    // =========================
     private void Init(KeySystem keySystem)
     {
         if (initialized) return;
@@ -45,12 +41,9 @@ public class KeyUIController : MonoBehaviour
         UpdateKeys(keySystem.CollectedCount);
 
         if (completeText != null)
-            completeText.text = ""; // iniciar oculto
+            completeText.text = ""; 
     }
 
-    // =========================
-    // CREATE
-    // =========================
     private void CreateKeys(int totalKeys)
     {
         for (int i = 0; i < totalKeys; i++)
@@ -63,9 +56,7 @@ public class KeyUIController : MonoBehaviour
         }
     }
 
-    // =========================
-    // UPDATE VISUAL
-    // =========================
+
     public void UpdateKeys(int collectedKeys)
     {
         for (int i = 0; i < keysUI.Count; i++)

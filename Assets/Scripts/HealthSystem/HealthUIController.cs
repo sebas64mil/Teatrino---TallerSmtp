@@ -8,8 +8,8 @@ public class HealthUIController : MonoBehaviour
     [SerializeField] private GameObject maskPrefab;
 
     [Header("Mask Sprites")]
-    [SerializeField] private Sprite fullMaskSprite;   // vida activa
-    [SerializeField] private Sprite emptyMaskSprite;  // vida perdida
+    [SerializeField] private Sprite fullMaskSprite;   
+    [SerializeField] private Sprite emptyMaskSprite;  
 
     private List<Image> masks = new List<Image>();
     private PlayerHealthManager healthManager;
@@ -21,16 +21,11 @@ public class HealthUIController : MonoBehaviour
 
         if (healthManager == null)
         {
-            Debug.LogWarning("HealthUIController: PlayerHealthManager no encontrado");
             return;
         }
 
         Init(healthManager);
     }
-
-    // =========================
-    // INIT
-    // =========================
     private void Init(PlayerHealthManager manager)
     {
         if (initialized) return;
@@ -42,9 +37,7 @@ public class HealthUIController : MonoBehaviour
         UpdateMasks(manager.CurrentHealth);
     }
 
-    // =========================
-    // CREATE (ONCE)
-    // =========================
+
     private void CreateMasks(int maxHealth)
     {
         for (int i = 0; i < maxHealth; i++)
@@ -52,19 +45,16 @@ public class HealthUIController : MonoBehaviour
             GameObject maskGO = Instantiate(maskPrefab, transform);
             Image img = maskGO.GetComponent<Image>();
 
-            img.sprite = fullMaskSprite; // 👈 empieza llena
+            img.sprite = fullMaskSprite; 
             masks.Add(img);
         }
     }
 
-    // =========================
-    // UPDATE VISUAL
-    // =========================
+
     public void UpdateMasks(int currentHealth)
     {
         for (int i = 0; i < masks.Count; i++)
         {
-            // las primeras siguen llenas, las últimas se vacían
             masks[i].sprite = i < currentHealth
                 ? fullMaskSprite
                 : emptyMaskSprite;

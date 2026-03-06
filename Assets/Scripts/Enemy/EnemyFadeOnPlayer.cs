@@ -4,11 +4,9 @@ using UnityEngine;
 public class EnemyFadeOnPlayer : MonoBehaviour
 {
     [Header("Fade Settings")]
-    [Tooltip("Alpha cuando el jugador está dentro del enemigo")]
     [Range(0f, 1f)]
     [SerializeField] private float fadedAlpha = 0.4f;
 
-    [Tooltip("Velocidad de transición del fade")]
     [SerializeField] private float fadeSpeed = 8f;
 
     private SpriteRenderer spriteRenderer;

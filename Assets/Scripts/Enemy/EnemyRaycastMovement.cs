@@ -10,22 +10,17 @@ public class EnemyRaycastMovement : MonoBehaviour
 
     [Header("Movement")]
 
-    [Tooltip("Velocidad a la que se mueve el enemigo")]
     [SerializeField] private float moveSpeed = 2f;
 
-    [Tooltip("Eje en el que se moverá el enemigo (Horizontal o Vertical)")]
     [SerializeField] private MovementAxis movementAxis = MovementAxis.Horizontal;
 
-    [Tooltip("Dirección inicial del movimiento: 1 = derecha/arriba, -1 = izquierda/abajo")]
-    [SerializeField] private int direction = 1; // 1 o -1
+    [SerializeField] private int direction = 1; 
 
 
     [Header("Raycast")]
 
-    [Tooltip("Distancia del raycast para detectar obstáculos frente al enemigo")]
     [SerializeField] private float rayDistance = 0.6f;
 
-    [Tooltip("Layers que harán que el enemigo cambie de dirección (NO incluir Player)")]
     [SerializeField] private LayerMask obstacleLayer;
 
     private Vector2 moveDirection;
@@ -52,7 +47,6 @@ public class EnemyRaycastMovement : MonoBehaviour
 
         if (hit.collider != null)
         {
-            // Si NO es el player cambia dirección
             if (!hit.collider.CompareTag("Player"))
             {
 

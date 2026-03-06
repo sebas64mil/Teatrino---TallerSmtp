@@ -28,9 +28,6 @@ public class PlayerLowHealthBlink : MonoBehaviour
         CheckHealthAndBlink();
     }
 
-    // =========================
-    // CHECK LIFE
-    // =========================
     public void CheckHealthAndBlink()
     {
         if (PlayerHealthManager.Instance.CurrentHealth <
@@ -40,9 +37,6 @@ public class PlayerLowHealthBlink : MonoBehaviour
         }
     }
 
-    // =========================
-    // BLINK LOGIC
-    // =========================
     private void StartBlink()
     {
         ForceResetColor();
@@ -71,14 +65,10 @@ public class PlayerLowHealthBlink : MonoBehaviour
             elapsed += blinkSpeed * 2f;
         }
 
-        // 🔒 aseguramos color final
         ForceResetColor();
         blinkRoutine = null;
     }
 
-    // =========================
-    // SAFETY
-    // =========================
     private void ForceResetColor()
     {
         sprite.color = originalColor;

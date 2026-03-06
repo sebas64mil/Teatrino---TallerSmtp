@@ -25,7 +25,6 @@ public class Key : MonoBehaviour
 
         if (KeySystem.Instance == null)
         {
-            Debug.LogError("❌ KeySystem no encontrado");
             return;
         }
 

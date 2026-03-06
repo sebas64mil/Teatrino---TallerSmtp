@@ -17,7 +17,6 @@ public class PlayerInputHandler : MonoBehaviour
         MoveInput = value.Get<Vector2>();
     }
 
-    // Cambio de máscara (solo estado)
     public void OnChangeMask(InputValue value)
     {
         ChangeMaskPressed = value.isPressed;
@@ -29,7 +28,6 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
 
-    // Consumir input (opcional pero recomendado)
     public void ConsumeChangeMask()
     {
         ChangeMaskPressed = false;

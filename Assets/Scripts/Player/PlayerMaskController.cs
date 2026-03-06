@@ -39,7 +39,6 @@ public class PlayerMaskController : MonoBehaviour, IDamageable, ICrossable
 
         audioMask.Play();
 
-        Debug.Log($" Máscara cambiada a: {currentMask}");
     }
 
     private void UpdateMaskAnimation()
@@ -70,14 +69,13 @@ public class PlayerMaskController : MonoBehaviour, IDamageable, ICrossable
 
     public void TakeDamage(int amount)
     {
-        Debug.Log($" Daño recibido: {amount} | Máscara: {currentMask}");
         PlayerHealthManager.Instance.TakeDamage(amount);
     }
 
 
     public void Cross(string obstacleTag)
     {
-        Debug.Log($" Atraviesa {obstacleTag} con máscara {currentMask}");
+        Debug.Log($"Cross {obstacleTag} with mask {currentMask}");
     }
 }
 

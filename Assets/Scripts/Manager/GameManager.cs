@@ -43,13 +43,6 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
-
-
-
-    // =========================
-    // SCENE TRANSITION
-    // =========================
     public void ChangeScene(string sceneName)
     {
         StartCoroutine(LoadSceneWithFade(sceneName));
@@ -69,9 +62,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // =========================
-    // OTHER
-    // =========================
     public void QuitGame()
     {
         Application.Quit();
@@ -97,9 +87,6 @@ public class GameManager : MonoBehaviour
         ChangeScene(SceneManager.GetActiveScene().name);
     }
 
-    // =========================
-    // PLAYER PREFS LOAD
-    // =========================
     public void LoadPlayerPrefs()
     {
         float master = PlayerPrefs.GetFloat("MasterVolume", 1f);
@@ -110,8 +97,6 @@ public class GameManager : MonoBehaviour
         SetMixerVolume("AmbientVolume", ambient);
         SetMixerVolume("SFXVolume", sfx);
     }
-
-    // Convertir slider (0–1) a decibeles
     private void SetMixerVolume(string parameter, float value)
     {
         float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
